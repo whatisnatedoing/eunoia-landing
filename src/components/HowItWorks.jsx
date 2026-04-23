@@ -85,7 +85,7 @@ export default function HowItWorks() {
         <div style={{ marginTop: '4rem', background: 'linear-gradient(135deg,var(--primary),var(--primary-dim))', borderRadius: 28, padding: '3rem 3.5rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '2rem' }}>
           <div>
             <h3 style={{ fontFamily: "'DM Serif Display',serif", fontSize: 'clamp(1.5rem,2.5vw,2rem)', color: 'white', lineHeight: 1.2, marginBottom: '0.5rem' }}>Ready to meet your <em>calmer self?</em></h3>
-            <p style={{ fontFamily: "'Manrope',sans-serif", fontSize: '0.9rem', color: 'rgba(255,255,255,0.72)', maxWidth: 420 }}>Join hundreds of Nigerians who are already building healthier emotional habits — one breath at a time.</p>
+            <p style={{ fontFamily: "'Manrope',sans-serif", fontSize: '0.9rem', color: 'rgba(255,255,255,0.72)', maxWidth: 420 }}>Join hundreds of people who are already building healthier emotional habits — one breath at a time.</p>
           </div>
           <a href="#waitlist" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'white', color: 'var(--primary)', padding: '0.9rem 1.75rem', borderRadius: 9999, fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: '0.9rem', fontWeight: 700, textDecoration: 'none', transition: 'transform 0.2s, box-shadow 0.2s', boxShadow: '0 4px 20px rgba(0,0,0,0.12)', whiteSpace: 'nowrap' }}
             onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 10px 32px rgba(0,0,0,0.18)' }}

@@ -50,7 +50,7 @@ export default function ManifestoStrip() {
         </p>
 
         <p style={{ fontFamily: "'Manrope',sans-serif", fontSize: '1rem', lineHeight: 1.75, color: 'rgba(255,255,255,0.45)', textAlign: 'center', maxWidth: 580, margin: '2rem auto 0', fontWeight: 400 }}>
-          Most mental health apps feel foreign — built for someone else, somewhere else. Eunoia is built for your reality. For the pressure of Nigerian life, for the moments nobody sees, for the mind that never stops.
+          Most mental health apps feel foreign — built for someone else, somewhere else. Eunoia is built for your reality. For the moments nobody sees, for the mind that never stops.
         </p>
       </div>
     </div>

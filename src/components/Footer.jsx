@@ -12,7 +12,7 @@ export default function Footer() {
         <div>
           <div style={{ fontFamily: "'Plus Jakarta Sans',sans-serif", fontWeight: 800, fontSize: '1.5rem', color: 'white', letterSpacing: '-0.03em', lineHeight: 1 }}>Eunoia</div>
           <div style={{ fontFamily: "'Manrope',sans-serif", fontSize: '0.58rem', fontWeight: 500, color: 'rgba(255,255,255,0.35)', letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: '1.25rem', marginTop: '0.2rem' }}>Beautiful Thinking</div>
-          <p style={{ fontFamily: "'Manrope',sans-serif", fontSize: '0.875rem', lineHeight: 1.75, color: 'rgba(255,255,255,0.45)', maxWidth: 280 }}>Your daily emotional companion. Built for Nigerians building healthier, clearer minds — one breath at a time.</p>
+          <p style={{ fontFamily: "'Manrope',sans-serif", fontSize: '0.875rem', lineHeight: 1.75, color: 'rgba(255,255,255,0.45)', maxWidth: 280 }}>Your daily emotional companion. Building healthier, clearer minds — one breath at a time.</p>
           <div style={{ display: 'flex', gap: '0.65rem', marginTop: '1.75rem' }}>
             {['X','IG','LI'].map(s => (
               <a key={s} href="#" style={{ width: 36, height: 36, borderRadius: '50%', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.09)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'rgba(255,255,255,0.5)', textDecoration: 'none', fontSize: '0.62rem', fontWeight: 700, fontFamily: "'Plus Jakarta Sans',sans-serif", transition: 'background 0.2s, color 0.2s' }}
@@ -35,9 +35,9 @@ export default function Footer() {
         ))}
       </div>
       <div style={{ maxWidth: 1280, margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
-        <span style={{ fontFamily: "'Manrope',sans-serif", fontSize: '0.78rem', color: 'rgba(255,255,255,0.28)' }}>© {new Date().getFullYear()} Eunoia. Made with intention in Nigeria.</span>
+        <span style={{ fontFamily: "'Manrope',sans-serif", fontSize: '0.78rem', color: 'rgba(255,255,255,0.28)' }}>© {new Date().getFullYear()} Eunoia. Made with intention.</span>
         <span style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontFamily: "'Manrope',sans-serif", fontSize: '0.78rem', color: 'rgba(255,255,255,0.28)' }}>
-          Built with <Heart size={11} color="var(--error)" fill="var(--error)" /> by{' '}
+          Built by{' '}
           <span style={{ fontFamily: "'Plus Jakarta Sans',sans-serif", fontWeight: 700, color: 'rgba(255,255,255,0.55)', letterSpacing: '-0.01em' }}>Danbury</span>
         </span>
       </div>

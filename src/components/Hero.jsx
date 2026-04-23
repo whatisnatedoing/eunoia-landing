@@ -124,7 +124,7 @@ export default function Hero() {
           </div>
 
           <p data-reveal style={{ fontFamily: "'Manrope',sans-serif", fontSize: '1.06rem', lineHeight: 1.8, color: 'var(--on-surface-variant)', maxWidth: 460, marginBottom: '2.75rem', fontWeight: 400 }}>
-            An AI-powered space to understand how you feel, process your thoughts, and find calm in real time. Built for real Nigerian life.
+            An AI-powered space to understand how you feel, process your thoughts, and find calm in real time.
           </p>
 
           <div data-reveal style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap', marginBottom: '3.5rem' }}>
