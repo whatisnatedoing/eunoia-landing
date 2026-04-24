@@ -36,15 +36,15 @@ function WaveformViz() {
 }
 
 function MoodTracker() {
-  const days = ['M','T','W','T','F','S','S']
-  const moods = [3,4,2,5,4,3,5]
-  const colors = ['','rgba(103,80,165,0.2)','rgba(103,80,165,0.35)','rgba(103,80,165,0.5)','rgba(103,80,165,0.7)','var(--primary)']
+  const days = ['M', 'T', 'W', 'T', 'F', 'S', 'S']
+  const moods = [3, 4, 2, 5, 4, 3, 5]
+  const colors = ['', 'rgba(103,80,165,0.2)', 'rgba(103,80,165,0.35)', 'rgba(103,80,165,0.5)', 'rgba(103,80,165,0.7)', 'var(--primary)']
   return (
     <div style={{ marginTop: '1.5rem' }}>
       <div style={{ display: 'flex', gap: 6, alignItems: 'flex-end', height: 52 }}>
         {moods.map((m, i) => (
           <div key={i} style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4 }}>
-            <div style={{ width: '100%', height: m * 9, borderRadius: 4, background: colors[m], transition: 'height 0.3s' }} />
+            <div style={{ width: '100%', height: m * 9, borderRadius: 4, background: colors[m] }} />
             <span style={{ fontSize: '0.6rem', fontWeight: 600, color: 'var(--on-surface-variant)' }}>{days[i]}</span>
           </div>
         ))}
@@ -79,48 +79,12 @@ function MicroActions() {
 }
 
 const CARDS = [
-  {
-    id: 'voice', span: false, tall: true,
-    variant: 'purple', Icon: Mic,
-    title: 'Voice Journal AI',
-    body: 'Speak freely. Eunoia detects tone, pauses, and emotional intensity — then turns your voice into insight. No typing, just talking.',
-    chip: 'AI-Powered', extra: 'wave',
-  },
-  {
-    id: 'reframe', span: false, tall: false,
-    variant: 'default', Icon: Brain,
-    title: 'Thought Reframing',
-    body: 'Share a negative thought. Eunoia challenges cognitive distortions and offers alternative perspectives — like a wise friend, not a therapist.',
-    chip: 'Cognitive Tools',
-  },
-  {
-    id: 'panic', span: false, tall: false,
-    variant: 'teal', Icon: Wind,
-    title: 'Panic Mode',
-    body: 'One tap. Guided breathing, grounding 5-4-3-2-1, and calming support for your hardest moments.',
-    chip: 'Instant Relief', extra: 'orb',
-  },
-  {
-    id: 'insights', span: true, tall: false,
-    variant: 'default', Icon: TrendingUp,
-    title: 'Mood Pattern Intelligence',
-    body: '"Your mood drops on Sunday evenings." Eunoia tracks emotional trends across time, activities, and behaviors — turning raw data into real self-awareness.',
-    chip: 'Weekly Insights', extra: 'chart',
-  },
-  {
-    id: 'micro', span: false, tall: false,
-    variant: 'peach', Icon: Zap,
-    title: 'Micro-Interventions',
-    body: '30–60 second tools built for real life — anxiety resets, confidence boosts, and focus resets when you have no time.',
-    chip: 'Quick Relief', extra: 'actions',
-  },
-  {
-    id: 'grow', span: true, tall: false,
-    variant: 'dark', Icon: Sprout,
-    title: 'Growth Paths',
-    body: 'Choose a personal goal — reduce anxiety, build confidence, stop overthinking. Daily prompts, small challenges, and real progress tracking built around your life.',
-    chip: 'Personal Development',
-  },
+  { id: 'voice', span: false, tall: true, variant: 'purple', Icon: Mic, title: 'Voice Journal AI', body: 'Speak freely. Eunoia detects tone, pauses, and emotional intensity — then turns your voice into insight. No typing, just talking.', chip: 'AI-Powered', extra: 'wave' },
+  { id: 'reframe', span: false, tall: false, variant: 'default', Icon: Brain, title: 'Thought Reframing', body: 'Share a negative thought. Eunoia challenges cognitive distortions and offers alternative perspectives — like a wise friend, not a therapist.', chip: 'Cognitive Tools' },
+  { id: 'panic', span: false, tall: false, variant: 'teal', Icon: Wind, title: 'Panic Mode', body: 'One tap. Guided breathing, grounding 5-4-3-2-1, and calming support for your hardest moments.', chip: 'Instant Relief', extra: 'orb' },
+  { id: 'insights', span: true, tall: false, variant: 'default', Icon: TrendingUp, title: 'Mood Pattern Intelligence', body: '"Your mood drops on Sunday evenings." Eunoia tracks emotional trends across time, activities, and behaviors — turning raw data into real self-awareness.', chip: 'Weekly Insights', extra: 'chart' },
+  { id: 'micro', span: false, tall: false, variant: 'peach', Icon: Zap, title: 'Micro-Interventions', body: '30–60 second tools built for real life — anxiety resets, confidence boosts, and focus resets when you have no time.', chip: 'Quick Relief', extra: 'actions' },
+  { id: 'grow', span: true, tall: false, variant: 'dark', Icon: Sprout, title: 'Growth Paths', body: 'Choose a personal goal — reduce anxiety, build confidence, stop overthinking. Daily prompts, small challenges, and real progress tracking built around your life.', chip: 'Personal Development' },
 ]
 
 const VARIANTS = {
@@ -136,26 +100,35 @@ function BentoCard({ card, delay }) {
   const v = VARIANTS[card.variant]
   const isRow = card.extra === 'chart'
   return (
-    <div ref={ref} style={{ background: v.bg, borderRadius: 28, padding: '2.25rem', gridColumn: card.span ? 'span 2' : 'span 1', gridRow: card.tall ? 'span 2' : 'span 1', position: 'relative', overflow: 'hidden', display: 'flex', flexDirection: isRow ? 'row' : 'column', gap: isRow ? '2.5rem' : 0, alignItems: isRow ? 'center' : 'flex-start', transition: 'transform 0.3s cubic-bezier(0.22,1,0.36,1)', cursor: 'default' }}
+    <div
+      ref={ref}
+      className={`bento-card${card.span ? ' bento-span' : ''}${card.tall ? ' bento-tall' : ''}`}
+      style={{
+        background: v.bg, borderRadius: 24, padding: '2rem',
+        position: 'relative', overflow: 'hidden',
+        display: 'flex', flexDirection: isRow ? 'row' : 'column',
+        gap: isRow ? '2rem' : 0,
+        alignItems: isRow ? 'center' : 'flex-start',
+        transition: 'transform 0.3s cubic-bezier(0.22,1,0.36,1)', cursor: 'default',
+      }}
       onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-4px)'}
       onMouseLeave={e => e.currentTarget.style.transform = ''}>
 
-      {/* Icon + arrow row */}
-      <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', width: isRow ? 'auto' : '100%', marginBottom: isRow ? 0 : '1.4rem', flexShrink: isRow ? 0 : 1 }}>
-        <div style={{ width: 48, height: 48, borderRadius: '50%', background: v.iconBg, color: v.iconColor, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <card.Icon size={22} />
+      <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', width: isRow ? 'auto' : '100%', marginBottom: isRow ? 0 : '1.25rem', flexShrink: isRow ? 0 : 1 }}>
+        <div style={{ width: 46, height: 46, borderRadius: '50%', background: v.iconBg, color: v.iconColor, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <card.Icon size={20} />
         </div>
         {!isRow && (
-          <div style={{ width: 32, height: 32, borderRadius: '50%', background: 'rgba(0,0,0,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', opacity: 0.5 }}>
-            <ArrowUpRight size={14} color={v.title === 'white' ? 'white' : 'var(--on-surface)'} />
+          <div style={{ width: 30, height: 30, borderRadius: '50%', background: 'rgba(0,0,0,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', opacity: 0.5 }}>
+            <ArrowUpRight size={13} color={v.title === 'white' ? 'white' : 'var(--on-surface)'} />
           </div>
         )}
       </div>
 
       <div style={{ flex: 1 }}>
-        <h3 style={{ fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: '1.15rem', fontWeight: 700, color: v.title, lineHeight: 1.3, marginBottom: '0.65rem' }}>{card.title}</h3>
-        <p style={{ fontFamily: "'Manrope',sans-serif", fontSize: '0.875rem', lineHeight: 1.7, color: v.body, marginBottom: '1.25rem' }}>{card.body}</p>
-        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem', background: v.chipBg, color: v.chipColor, padding: '0.28rem 0.75rem', borderRadius: 9999, fontSize: '0.67rem', fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', fontFamily: "'Plus Jakarta Sans',sans-serif" }}>{card.chip}</div>
+        <h3 style={{ fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: '1.08rem', fontWeight: 700, color: v.title, lineHeight: 1.3, marginBottom: '0.6rem' }}>{card.title}</h3>
+        <p style={{ fontFamily: "'Manrope',sans-serif", fontSize: '0.855rem', lineHeight: 1.7, color: v.body, marginBottom: '1.1rem' }}>{card.body}</p>
+        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem', background: v.chipBg, color: v.chipColor, padding: '0.28rem 0.75rem', borderRadius: 9999, fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', fontFamily: "'Plus Jakarta Sans',sans-serif" }}>{card.chip}</div>
         {card.extra === 'chart' && <MoodTracker />}
         {card.extra === 'actions' && <MicroActions />}
       </div>
@@ -169,23 +142,47 @@ function BentoCard({ card, delay }) {
 export default function Features() {
   const headerRef = useReveal(0)
   return (
-    <section id="features" style={{ padding: '8rem 2rem', maxWidth: 1280, margin: '0 auto' }}>
-      <div ref={headerRef} style={{ marginBottom: '4rem' }}>
+    <section id="features" style={{ padding: '6rem 1.5rem', maxWidth: 1280, margin: '0 auto' }}>
+      <div ref={headerRef} style={{ marginBottom: '3.5rem' }}>
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--tertiary)', marginBottom: '1.25rem', fontFamily: "'Plus Jakarta Sans',sans-serif" }}>
           <div style={{ width: 24, height: 1.5, background: 'var(--tertiary)' }} />
           What Eunoia does
         </div>
-        <h2 style={{ fontFamily: "'DM Serif Display',serif", fontSize: 'clamp(2rem,4vw,3.4rem)', lineHeight: 1.1, letterSpacing: '-0.02em', color: 'var(--on-surface)', marginBottom: '1.1rem' }}>
+        <h2 style={{ fontFamily: "'DM Serif Display',serif", fontSize: 'clamp(2rem,4vw,3.4rem)', lineHeight: 1.1, letterSpacing: '-0.02em', color: 'var(--on-surface)', marginBottom: '1rem' }}>
           Everything you need to<br /><em style={{ color: 'var(--primary)', fontStyle: 'italic' }}>understand yourself.</em>
         </h2>
         <p style={{ fontFamily: "'Manrope',sans-serif", fontSize: '1rem', lineHeight: 1.75, color: 'var(--on-surface-variant)', maxWidth: 540 }}>
           Unlike apps that just log your mood and give generic advice, Eunoia listens to context, responds intelligently, and meets you exactly where you are.
         </p>
       </div>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '1.2rem' }}>
+
+      <div className="bento-grid">
         {CARDS.map((card, i) => <BentoCard key={card.id} card={card} delay={i * 60} />)}
       </div>
+
       <style>{`
+        .bento-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 1rem;
+        }
+        .bento-span { grid-column: span 2; }
+        .bento-tall { grid-row: span 2; }
+
+        @media (max-width: 900px) {
+          .bento-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+          .bento-span { grid-column: span 2; }
+          .bento-tall { grid-row: span 1; }
+        }
+        @media (max-width: 560px) {
+          .bento-grid {
+            grid-template-columns: 1fr;
+          }
+          .bento-span { grid-column: span 1; }
+          .bento-card { border-radius: 20px; padding: 1.5rem; }
+        }
         @keyframes waveAnim{0%,100%{transform:scaleY(1)}50%{transform:scaleY(0.3)}}
         @keyframes breatheOrb{0%,100%{transform:scale(1);opacity:0.4}50%{transform:scale(1.6);opacity:0.7}}
       `}</style>
