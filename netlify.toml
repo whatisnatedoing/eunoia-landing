@@ -4,7 +4,6 @@
   status = 200
 
 
-[build.environment]
-  NPM_CONFIG_PRODUCTION = "false"
-  # or explicitly clear NPM_FLAGS
-  NPM_FLAGS = ""
+[build]
+  command = "npm run build"
+  publish = "dist"
